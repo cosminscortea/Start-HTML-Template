@@ -13,7 +13,6 @@ var gulp           = require('gulp'),
 		ftp            = require('vinyl-ftp'),
 		notify         = require("gulp-notify");
 
-// Скрипты проекта
 
 gulp.task('common-js', function() {
 	return gulp.src([
@@ -30,7 +29,6 @@ gulp.task('js', ['common-js'], function() {
 		'app/js/common.min.js',
 		])
 	.pipe(concat('scripts.min.js'))
-	// .pipe(uglify()) // Минимизировать весь js (на выбор)
 	.pipe(gulp.dest('app/js'))
 	.pipe(browserSync.reload({stream: true}));
 });
@@ -41,8 +39,6 @@ gulp.task('browser-sync', function() {
 			baseDir: 'app'
 		},
 		notify: false,
-		// tunnel: true,
-		// tunnel: "projectmane", //Demonstration page: http://projectmane.localtunnel.me
 	});
 });
 
